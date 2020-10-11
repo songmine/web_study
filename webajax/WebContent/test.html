@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+  function go() {
+	  var su1=document.getElementById("su1").value;
+	  var sum=0;
+	  for(var i=1; i<=su1; i++){
+		  sum+=i;
+	  }
+	  document.getElementById("msg").innerHTML="<font color='red'>"+sum+"</font>";
+  }
+</script>
+</head>
+<body>
+  <input type="text" name="su1" id="su1"/>
+  <input type="button" value="클릭" onclick="go()"/>
+  <div id="msg">여기에 출력하세요</div>
+</body>
+</html>

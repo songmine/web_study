@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+     $("#add").click(function(){
+    	 //서블릿을 요청시 쓰는 함수 ajax(비동기 전송 기술)
+    	 var op1 = $("#op1").val();
+    	 var op2 = $("#op2").val();
+		 $.ajax({  									//이미만들어진 함수 불러다가 씀 .$  
+			 url : "/webajax/add",  				// CalcAddController  (url에서 요청들어오고  line22에서 응답이루어짐)
+			 type: "post",							//get방식 or post방식
+			 data: {"op1":op1, "op2":op2}, 			//요청시 넘기는 parameter
+			 success : result,						//뒤에 그냥있다가.. (서버가요청받아서 처리)서블릿에서 계산된결과를 받아서 실행하는 함수==콜백함수
+			 dataType : "text",
+		 	 error: function(){ alert("error"); }
+		 });   	 
+     });
+  });
+  function result(data){
+	  //alert(data);
+	  $("#msg").html(data);
+  }
+</script>
+</head>
+<body>
+ <h1>계산 할 두 수를 입력하세요.</h1>
+   <input type="text" size="5" name="op1" id="op1"/>+
+   <input type="text" size="5" name="op2" id="op2"/>
+   <input type="button" value="더하기" id="add"/>
+   <div id="msg">여기에 더하기 결과를 출력</div>
+</body>
+</html>
