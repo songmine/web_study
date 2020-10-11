@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.mem.mybatis.MemberMapper">
+
+ <insert id="memberInsert" parameterType="kr.mem.model.MemberVO">
+ 	insert into tblMem values(seq_num.nextval,
+ 	  #{name},#{phone},#{addr},#{lat},#{lng}
+ 	)
+ </insert>
+ <select id="memberAllList" resultType="kr.mem.model.MemberVO">
+ 	select * from tblMem order by num desc
+ </select>
+ <delete id="memberDelete" parameterType="Integer">
+    delete from tblMem where num = #{num}
+ </delete>
+ <select id="memberContent" parameterType="Integer" resultType="kr.mem.model.MemberVO">
+ 	select * from tblMem where num= #{num}
+ </select>
+ <update id="memberUpdate" parameterType="kr.mem.model.MemberVO">
+ 	update tblMem set phone=#{phone},addr=#{addr} where num=#{num}
+ </update>
+ 
+
+</mapper>
