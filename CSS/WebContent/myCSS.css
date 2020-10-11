@@ -1,0 +1,13 @@
+@charset "EUC-KR";
+#div1 {
+	width: 500px;
+	height: 1000px;
+	background-color: yellow;
+}
+p {
+	color: red;
+}
+span {
+	color: blue;
+}
+
